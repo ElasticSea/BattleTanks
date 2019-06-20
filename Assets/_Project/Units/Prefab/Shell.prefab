@@ -272,6 +272,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9725d5f9c24988a49afa17b983bc59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxDamage: 10
+  explosionForce: 1000
+  explosionRadius: 5
   particleSystem: {fileID: 1595879098746335092}
 --- !u!1001 &6862793797985444476
 PrefabInstance:

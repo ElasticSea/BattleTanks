@@ -7,7 +7,7 @@ namespace _Project.Scripts
     {
         [Header("Parameters")]
         public float maxDamage = 100f;
-        public float explosionForce = 5f;
+        public float explosionForce = 1000f;
         public float explosionRadius = 5f;                
         
         [Header("References")]

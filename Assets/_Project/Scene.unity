@@ -901,7 +901,7 @@ MonoBehaviour:
   maxFireTime: 3
   minFireVelocity: 20
   maxFireVelocity: 80
-  fireRate: 1
+  fireRate: 0.2
   moveSpeed: 10
   rotateSpeed: 90
   turretSpeed: {x: 180, y: 120}

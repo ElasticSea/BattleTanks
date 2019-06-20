@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e8337968e854d6fbeb6378ae3fb7d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireInterval: 0.2
+  fireInterval: 2
   sheelSpeed: 10
   marginOfErrorDistance: 3
   shellPrefab: {fileID: 5126737601188275489, guid: d86ec40207604b541b739b3c13324dde,
