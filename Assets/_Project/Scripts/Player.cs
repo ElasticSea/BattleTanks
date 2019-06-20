@@ -10,7 +10,8 @@ namespace _Project.Scripts
         private void Update()
         {
             var input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            transform.position += input * moveSpeed * Time.deltaTime;
+            var cameraAdjust = Quaternion.Euler(0, Camera.main.transform.rotation.eulerAngles.y, 0);
+            transform.position += cameraAdjust * input * moveSpeed * Time.deltaTime;
         }
     }
 }
