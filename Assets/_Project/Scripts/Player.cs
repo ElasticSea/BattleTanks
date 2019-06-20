@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace _Project.Scripts
 {
@@ -18,6 +19,7 @@ namespace _Project.Scripts
         [SerializeField] private Transform turret;
         [SerializeField] private Shell shellPrefab;
         [SerializeField] private Transform fireOriginTransform;
+        [SerializeField] private Health health;
         
         private float firingStart;
         private bool firing;
@@ -25,6 +27,11 @@ namespace _Project.Scripts
 
         private void Awake()
         {
+            health.OnDeath += () =>
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            };
+            
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }

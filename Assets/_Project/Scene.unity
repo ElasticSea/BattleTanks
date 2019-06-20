@@ -700,6 +700,7 @@ MonoBehaviour:
   shellPrefab: {fileID: 5126737601188275489, guid: d86ec40207604b541b739b3c13324dde,
     type: 3}
   fireOriginTransform: {fileID: 1399705810}
+  health: {fileID: 1956130016}
 --- !u!54 &750638206 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 3293459223771309181, guid: a753293a5310a4a419c7c72f5d725bd0,
