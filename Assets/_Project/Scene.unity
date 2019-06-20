@@ -436,6 +436,21 @@ MonoBehaviour:
   shellPrefab: {fileID: 5126737601188275489, guid: d86ec40207604b541b739b3c13324dde,
     type: 3}
   fireOriginTransform: {fileID: 1399705810}
+--- !u!114 &750638204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750638202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f89e2778ca4aefaf10d3731b8a6fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 1
+  currentHealth: 100
+  maxHealth: 100
 --- !u!54 &750638206 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 3293459223771309181, guid: a753293a5310a4a419c7c72f5d725bd0,
