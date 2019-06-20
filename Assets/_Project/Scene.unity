@@ -424,11 +424,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8944433ee557c4046a782bee39940779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFireTime: 3
+  minFireVelocity: 20
+  maxFireVelocity: 80
+  fireRate: 1
   moveSpeed: 10
   rotateSpeed: 90
   turretSpeed: {x: 180, y: 120}
   rigidbody: {fileID: 750638206}
   turret: {fileID: 752188757}
+  shellPrefab: {fileID: 5126737601188275489, guid: d86ec40207604b541b739b3c13324dde,
+    type: 3}
+  fireOriginTransform: {fileID: 1399705810}
 --- !u!54 &750638206 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 3293459223771309181, guid: a753293a5310a4a419c7c72f5d725bd0,
@@ -676,6 +683,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &1399705810 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2577412133144374388, guid: a753293a5310a4a419c7c72f5d725bd0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1956130015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1514156398
 PrefabInstance:
   m_ObjectHideFlags: 0
