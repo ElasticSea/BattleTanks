@@ -6,8 +6,9 @@ namespace _Project.Scripts
     public class ExplodeOnImpact : MonoBehaviour
     {
         [Header("Parameters")]
-        public float maxDamage = 100f;                    // The amount of damage done if the explosion is centred on a tank.
-        public float explosionRadius = 5f;                // The maximum distance away from the explosion tanks can be and are still affected.
+        public float maxDamage = 100f;
+        public float explosionForce = 5f;
+        public float explosionRadius = 5f;                
         
         [Header("References")]
         public ParticleSystem particleSystem;
@@ -35,6 +36,13 @@ namespace _Project.Scripts
             {
                 var damage = CalculateDamage(target.transform.position);
                 target.Damage(damage);
+                
+                var targetRigibody = target.GetComponent<Rigidbody>();
+                
+                if (targetRigibody)
+                {
+                    targetRigibody.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+                }
             }
         }
 
