@@ -7,12 +7,18 @@ namespace _Project.Scripts
         [Header("Parameters")]
         [SerializeField] private float moveSpeed = 10;
         [SerializeField] private float rotateSpeed = 90;
-        [SerializeField] private Vector2 turretSpeed = new Vector2(3, 2);
+        [SerializeField] private Vector2 turretSpeed = new Vector2(180, 120);
 
         [Header("References")]
         [SerializeField] private Rigidbody rigidbody;
         [SerializeField] private Transform turret;
-        
+
+        private void Awake()
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
         private void FixedUpdate()
         {
             var keyboardInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));

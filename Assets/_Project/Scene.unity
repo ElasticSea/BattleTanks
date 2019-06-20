@@ -426,7 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotateSpeed: 90
-  turretSpeed: {x: 3, y: 2}
+  turretSpeed: {x: 180, y: 120}
   rigidbody: {fileID: 750638206}
   turret: {fileID: 752188757}
 --- !u!54 &750638206 stripped
