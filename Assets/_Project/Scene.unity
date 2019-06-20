@@ -1380,6 +1380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireInterval: 0.2
   sheelSpeed: 10
+  marginOfErrorDistance: 3
   shellPrefab: {fileID: 5126737601188275489, guid: d86ec40207604b541b739b3c13324dde,
     type: 3}
   target: {fileID: 750638207}

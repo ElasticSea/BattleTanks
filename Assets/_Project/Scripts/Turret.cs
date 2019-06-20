@@ -8,6 +8,7 @@ namespace _Project.Scripts
         [Header("Parameters")]
         [SerializeField] private float fireInterval = 1;
         [SerializeField] private float sheelSpeed = 1;
+        [SerializeField] private float marginOfErrorDistance = 1;
 
         [Header("References")]
         [SerializeField] private Shell shellPrefab;
@@ -49,7 +50,13 @@ namespace _Project.Scripts
 
         private void Fire()
         {
-            var targetPosition = target.position;
+            var rngAngle = Random.value * Mathf.PI * 2;
+            var rngDistance = Random.value * marginOfErrorDistance;
+
+            var offsetX = Mathf.Cos(rngAngle) * rngDistance;
+            var offsetZ = Mathf.Sin(rngAngle) * rngDistance;
+            var offset = new Vector3(offsetX, 0, offsetZ);
+            var targetPosition = target.position + offset;
 
             var impactTime = Distance / sheelSpeed;
             var calculatedVelocity = CalculateTrajectoryVelocity(fireOriginTransform.position, targetPosition, impactTime);
