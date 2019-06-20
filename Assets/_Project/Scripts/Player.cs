@@ -6,12 +6,15 @@ namespace _Project.Scripts
     {
         [Header("Parameters")]
         [SerializeField] private float moveSpeed = 10;
+
+        [Header("References")]
+        [SerializeField] private Rigidbody rigidbody;
         
-        private void Update()
+        private void FixedUpdate()
         {
             var input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             var cameraAdjust = Quaternion.Euler(0, Camera.main.transform.rotation.eulerAngles.y, 0);
-            transform.position += cameraAdjust * input * moveSpeed * Time.deltaTime;
+            rigidbody.MovePosition(transform.position + cameraAdjust * input * moveSpeed * Time.deltaTime);
         }
     }
 }

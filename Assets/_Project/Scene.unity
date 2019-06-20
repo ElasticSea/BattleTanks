@@ -425,6 +425,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  rigidbody: {fileID: 750638206}
+--- !u!54 &750638206 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3293459223771309181, guid: a753293a5310a4a419c7c72f5d725bd0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1956130015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &759761169
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,7 +867,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 30.6
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -885,8 +892,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683964045}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.16361588, y: -0.7936526, z: 0.24367744, w: 0.5328854}
+  m_LocalPosition: {x: 51.58459, y: 38.096073, z: 19.606781}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
