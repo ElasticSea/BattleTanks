@@ -6,18 +6,17 @@ namespace _Project.Scripts
 {
     public class ColorByTeam : MonoBehaviour
     {
-        [Header("References")]
-        [SerializeField] private Entity tank;
+        [SerializeField] private Tank tank;
         
         private void Awake()
         {
-            foreach (var renderer in tank.gameObject.GetComponentsInChildren<Renderer>())
+            foreach (var renderer in tank.GetComponentsInChildren<Renderer>())
             {
-                renderer.materials = renderer.materials.Select(CreateMaterial).ToArray();
+                renderer.materials = renderer.materials.Select(m => getMat(m)).ToArray();
             }
         }
 
-        private Material CreateMaterial(Material material)
+        private Material getMat(Material material)
         {
             var range = (float) tank.Team / Enum.GetValues(typeof(Team)).Length;
             material.color = material.color.TransformHSV(range * 360, 1, 1);

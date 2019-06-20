@@ -1,26 +1,23 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace _Project.Scripts
 {
     public class Player : MonoBehaviour
     {
-        [Header("Parameters")]
-        [SerializeField] private float maxFireTime = 3;
-        [SerializeField] private float minFireVelocity = 20;
-        [SerializeField] private float maxFireVelocity = 80;
-        [SerializeField] private float fireRate = 1;
+        [SerializeField] private float maxFireTime;
+        [SerializeField] private float minFireVelocity;
+        [SerializeField] private float maxFireVelocity;
+        [SerializeField] private float fireRate;
+        [SerializeField] private Rigidbody rigibody;
+        [SerializeField] private Transform turret;
         [SerializeField] private float moveSpeed = 10;
         [SerializeField] private float rotateSpeed = 90;
-        [SerializeField] private Vector2 turretSpeed = new Vector2(180, 120);
-
-        [Header("References")]
-        [SerializeField] private Rigidbody rigidbody;
-        [SerializeField] private Transform turret;
-        [SerializeField] private Shell shellPrefab;
-        [SerializeField] private Transform fireOriginTransform;
+        [SerializeField] private Vector2 turrentRotationSpeed = new Vector2(3, 2);
         [SerializeField] private Health health;
         
+        [SerializeField] private Shell shellPrefab;
+        [SerializeField] private Transform fireOriginTransform;
         private float firingStart;
         private bool firing;
         private float fireTime;
@@ -31,31 +28,25 @@ namespace _Project.Scripts
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             };
-            
+        }
+
+        private void Start()
+        {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        private void FixedUpdate()
-        {
-            var keyboardInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            
-            rigidbody.MovePosition(transform.position + transform.forward * keyboardInput.y * moveSpeed * Time.deltaTime);
-            transform.Rotate(Vector3.up, rotateSpeed * keyboardInput.x * Time.deltaTime, Space.World);
-            
-        }
-        
         private void Update()
         {
-            var mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-            turret.Rotate(Vector3.up, mouseInput.x * turretSpeed.x * Time.deltaTime, Space.World);
-            turret.Rotate(Vector3.left, mouseInput.y * turretSpeed.y * Time.deltaTime, Space.Self);
+            var delta = new Vector2( Input.GetAxis("Mouse X") ,Input.GetAxis("Mouse Y"));
+   
+            turret.Rotate(Vector3.up, turrentRotationSpeed.x * delta.x, Space.World);
+            turret.Rotate(Vector3.left, turrentRotationSpeed.y * delta.y, Space.Self);
+        
+            var input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            rigibody.MovePosition( rigibody.position + Time.deltaTime * input.z * transform.forward * moveSpeed);
+            transform.Rotate(Vector3.up, input.x * rotateSpeed * Time.deltaTime * Mathf.Sign(input.z), Space.World);
 
-            TryToFire();
-        }
-
-        private void TryToFire()
-        {
             if (Time.time - fireTime > fireRate)
             {
                 if (Input.GetKeyDown(KeyCode.Space) && firing == false)

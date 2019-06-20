@@ -5,13 +5,14 @@ namespace _Project.Scripts
 {
     public class Health : MonoBehaviour
     {
-        [Header("Parameters")]
         [SerializeField] private bool isAlive = true;
-        [SerializeField] private float currentHealth = 100;
-        [SerializeField] private float maxHealth = 100;
+        [SerializeField] private float currentHealth;
+        [SerializeField] private float maxHealth;
 
         public float CurrentHealth => currentHealth;
         public float MaxHealth => maxHealth;
+
+        public bool IsAlive => isAlive;
 
         public Action OnDeath = () => { };
 

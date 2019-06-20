@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4843968767177904002}
   - component: {fileID: 4843968767176700710}
   m_Layer: 0
-  m_Name: Dust Trail
+  m_Name: LeftDustTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 0
+  scalingMode: 2
   randomSeed: 0
   InitialModule:
     serializedVersion: 3

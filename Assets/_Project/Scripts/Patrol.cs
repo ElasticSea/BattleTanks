@@ -6,10 +6,8 @@ namespace _Project.Scripts
 {
     public class Patrol : MonoBehaviour
     {
-        [Header("References")]
         [SerializeField] private NavMeshAgent agent;
-        
-        [Header("Parameters")]
+        [SerializeField] private float closeRadius;
         [SerializeField] private Transform[] points;
 
         private Transform target;

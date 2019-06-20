@@ -146,10 +146,10 @@ GameObject:
   - component: {fileID: 6160941400530706510}
   - component: {fileID: 6160941400529903726}
   - component: {fileID: 6160941400528806574}
+  - component: {fileID: 1512759668435868722}
   - component: {fileID: 3502112089155342637}
+  - component: {fileID: 1979310521327777714}
   - component: {fileID: 5231631287868647}
-  - component: {fileID: 5126737601188275489}
-  - component: {fileID: 3361960897100446327}
   m_Layer: 0
   m_Name: Shell
   m_TagString: Untagged
@@ -218,6 +218,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1512759668435868722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160941400531074158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b0c8d6acb54f29bbfd4e7bfab66047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody: {fileID: 3502112089155342637}
 --- !u!54 &3502112089155342637
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -234,6 +247,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1979310521327777714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160941400531074158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41b615c4e1c4356bf3f2eb0668b2bfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExplosionParticles: {fileID: 1595879098746335092}
+  m_MaxDamage: 10
+  m_ExplosionForce: 1000
+  m_MaxLifeTime: 2
+  m_ExplosionRadius: 5
 --- !u!135 &5231631287868647
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -247,35 +277,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.2626306
   m_Center: {x: 0, y: 0.000000007450581, z: 0.19800001}
---- !u!114 &5126737601188275489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6160941400531074158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccaedc1517f140f1bb690e95bf01c743, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody: {fileID: 3502112089155342637}
---- !u!114 &3361960897100446327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6160941400531074158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9725d5f9c24988a49afa17b983bc59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDamage: 10
-  explosionForce: 1000
-  explosionRadius: 5
-  particleSystem: {fileID: 1595879098746335092}
 --- !u!1001 &6862793797985444476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -283,6 +284,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6160941400530706510}
     m_Modifications:
+    - target: {fileID: 5466793965463409104, guid: ff8870acabb501840b83631112827867,
+        type: 3}
+      propertyPath: m_Name
+      value: Shell Explosion
+      objectReference: {fileID: 0}
     - target: {fileID: 5460842417783340734, guid: ff8870acabb501840b83631112827867,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -337,16 +343,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5466793965463409104, guid: ff8870acabb501840b83631112827867,
-        type: 3}
-      propertyPath: m_Name
-      value: Shell Explosion
-      objectReference: {fileID: 0}
-    - target: {fileID: 5402865314442634196, guid: ff8870acabb501840b83631112827867,
-        type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff8870acabb501840b83631112827867, type: 3}

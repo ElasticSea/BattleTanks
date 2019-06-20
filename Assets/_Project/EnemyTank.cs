@@ -1,20 +1,19 @@
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using _Framework.Scripts.Extensions;
+using _Project.Scripts;
 
-namespace _Project.Scripts
+namespace _Project
 {
-    public class TankAi : MonoBehaviour
+    public class EnemyTank : MonoBehaviour
     {
-        [Header("Parameters")]
         [SerializeField] private float idleRadius = 5;
         [SerializeField] private float agroRadius = 10;
-        
-        [Header("References")]
         [SerializeField] private Patrol patrol;
         [SerializeField] private NavMeshAgent agent;
-        [SerializeField] private Entity tank;
+        [SerializeField] private Tank tank;
         [SerializeField] private Turret turret;
         
         private void Update()
@@ -23,7 +22,7 @@ namespace _Project.Scripts
             
             var enemies = Physics
                 .OverlapSphere(transform.position, radius)
-                .Select(c => c.GetComponent<Entity>())
+                .Select(c => c.GetComponent<Tank>())
                 .Where(t => t != null && t.Team != tank.Team)
                 .ToList();
         
