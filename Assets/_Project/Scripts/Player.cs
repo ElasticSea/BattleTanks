@@ -12,9 +12,9 @@ namespace _Project.Scripts
         
         private void FixedUpdate()
         {
-            var input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            var cameraAdjust = Quaternion.Euler(0, Camera.main.transform.rotation.eulerAngles.y, 0);
-            rigidbody.MovePosition(transform.position + cameraAdjust * input * moveSpeed * Time.deltaTime);
+            var keyboardInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            
+            rigidbody.MovePosition(transform.position + transform.forward * keyboardInput.y * moveSpeed * Time.deltaTime);
         }
     }
 }
