@@ -19,8 +19,9 @@ namespace _Project.Scripts
         [SerializeField] private Shell shellPrefab;
         [SerializeField] private Transform fireOriginTransform;
         private float firingStart;
-        private bool firing;
+        public bool Firing { get; private set; }
         private float fireTime;
+        private float timeDifference;
 
         private void Awake()
         {
@@ -49,27 +50,36 @@ namespace _Project.Scripts
 
             if (Time.time - fireTime > fireRate)
             {
-                if (Input.GetKeyDown(KeyCode.Space) && firing == false)
+                var isDown = Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0);
+                var isPressed = Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0);
+                var isUp = Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0);
+                
+                if ((isDown || isPressed) && Firing == false)
                 {
                     firingStart = Time.time;
-                    firing = true;
+                    Firing = true;
                 }
 
-                var timeDifference = Time.time - firingStart;
+                timeDifference = Time.time - firingStart;
 
-                if (Input.GetKeyUp(KeyCode.Space) && firing)
+                if (isUp && Firing)
                 {
-                    Fire(Mathf.Lerp(minFireVelocity, maxFireVelocity, timeDifference / maxFireTime));
-                    firing = false;
+                    Fire(CurrentVelocity);
+                    Firing = false;
                 }
 
-                if (timeDifference >= maxFireTime && firing)
+                if (timeDifference >= maxFireTime && Firing)
                 {
-                    Fire(maxFireVelocity);
-                    firing = false;
+                    Fire(CurrentVelocity);
+                    Firing = false;
                 }
             }
         }
+
+        public float CurrentVelocity => Mathf.Lerp(minFireVelocity, maxFireVelocity, timeDifference / maxFireTime);
+
+        public float MaxFireVelocity => maxFireVelocity;
+        public float MinFireVelocity => minFireVelocity;
 
         private void Fire(float velocity)
         {
